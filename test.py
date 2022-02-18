@@ -1,0 +1,7 @@
+stats = [{'url': 'https://velog.io/@bluejoyq/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81-3%EC%9E%A5', 'title': '[소프트웨어 공학]리팩터링 3장', 'view': '11'}, {'url': 'https://velog.io/@bluejoyq/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81-2%EC%9E%A5', 'title': '[소프트웨어 공학]리팩터링 2장', 'view': '13'}, {'url': 'https://velog.io/@bluejoyq/js%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81-1%EC%9E%A5', 'title': '[소프트웨어 공학]리팩터링 1장', 'view': '20'}, {'url': 'https://velog.io/@bluejoyq/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-KMP', 'title': '[알고리즘] KMP', 'view': '20'}, {'url': 'https://velog.io/@bluejoyq/%EB%B0%B1%EC%A4%80-1847%EB%B2%88-python', 'title': '[알고리즘] 백준 1847번 python', 'view': '23'}, {'url': 'https://velog.io/@bluejoyq/%EC%82%BC%EC%84%B1%EB%85%B8%ED%8A%B8-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%9D%B4%EB%B6%84%머스 2021 Winter Coding 코딩테스트 후기', 'view': '64'}, {'url': 'https://velog.io/@bluejoyq/react-toast-ui-editor', 'title': '[React] TOAST UI markdown Editor 사용하기', 'view': '1,604'}, {'url': 'https://velog.io/@bluejoyq/python3', 'title': '[python3] 리스트 초기화 속도 차이', 'view': '60'}]
+
+sum_view = 0
+for stat in stats:
+    sum_view += int(stat['view'].replace(',',''))
+
+print(sum_view)    
