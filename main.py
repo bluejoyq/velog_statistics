@@ -29,7 +29,7 @@ if  __name__  ==  "__main__" :
         driver.get(post_link)
         result['title'] = driver.find_element(By.XPATH, '//h1').text
         driver.find_element(By.XPATH, '//button[text()="통계"]').click()
-        result['view'] = driver.find_element(By.CLASS_NAME, 'value').text
+        result['view'] = int(driver.find_element(By.CLASS_NAME, 'value').text.replace(',',''))
         return result
     result = []
     for post_link in post_links:
