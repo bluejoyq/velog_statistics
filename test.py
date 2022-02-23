@@ -1,7 +1,29 @@
-stats = [{'url': 'https://velog.io/@bluejoyq/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81-3%EC%9E%A5', 'title': '[소프트웨어 공학]리팩터링 3장', 'view': '11'}, {'url': 'https://velog.io/@bluejoyq/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81-2%EC%9E%A5', 'title': '[소프트웨어 공학]리팩터링 2장', 'view': '13'}, {'url': 'https://velog.io/@bluejoyq/js%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81-1%EC%9E%A5', 'title': '[소프트웨어 공학]리팩터링 1장', 'view': '20'}, {'url': 'https://velog.io/@bluejoyq/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-KMP', 'title': '[알고리즘] KMP', 'view': '20'}, {'url': 'https://velog.io/@bluejoyq/%EB%B0%B1%EC%A4%80-1847%EB%B2%88-python', 'title': '[알고리즘] 백준 1847번 python', 'view': '23'}, {'url': 'https://velog.io/@bluejoyq/%EC%82%BC%EC%84%B1%EB%85%B8%ED%8A%B8-%ED%85%9C%ED%94%8C%EB%A6%BF-%EC%9D%B4%EB%B6%84%머스 2021 Winter Coding 코딩테스트 후기', 'view': '64'}, {'url': 'https://velog.io/@bluejoyq/react-toast-ui-editor', 'title': '[React] TOAST UI markdown Editor 사용하기', 'view': '1,604'}, {'url': 'https://velog.io/@bluejoyq/python3', 'title': '[python3] 리스트 초기화 속도 차이', 'view': '60'}]
+import undetected_chromedriver as uc
 
-sum_view = 0
-for stat in stats:
-    sum_view += int(stat['view'].replace(',',''))
+# main에서 실행하지 않으면 오류가 남
+# https://github.com/ultrafunkamsterdam/undetected-chromedriver/issues/486#issuecomment-1032009193 참조
 
-print(sum_view)    
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import undetected_chromedriver as uc
+
+def init_driver():
+    driver = uc.Chrome()
+    driver.get('https://velog.io')
+    return driver
+# 로그인 버튼을 눌러주고 로그인이 될 때까지 기다린다.
+def do_login(driver):
+    driver.find_element(By.XPATH,'//button[text()="로그인"]').click()
+    WebDriverWait(driver, 60).until(
+        EC.presence_of_element_located(
+            (By.XPATH, '//button[text()="새 글 작성"]')
+        )
+    )
+
+if  __name__  ==  "__main__" :
+    driver = init_driver()
+    do_login(driver)
+    
+    # 당신의 코드를 아래에 적으세요.
